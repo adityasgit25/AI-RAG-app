@@ -19,7 +19,13 @@ export async function POST(req) {
       { query: query.toLowerCase() }
     );
 
+    console.log('Hardcoded query result:', result.records.map(r => r.toObject()));
+
     console.log('Neo4j query result:', result);
+
+    if (result.records.length === 0) {
+      console.log('No records found for the given query.');
+    }
 
     const knowledge = result.records.map(record => ({
       college: record.get('c').properties,
