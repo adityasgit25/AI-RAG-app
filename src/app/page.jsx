@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import axios from 'axios';
-import { set } from 'mongoose';
 
 export default function Home() {
   const [query, setQuery] = useState('');
