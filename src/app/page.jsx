@@ -10,7 +10,7 @@ export default function Home() {
   const handleQuery = async () => {
     try {
       const res = await axios.post('/api/query', { query });
-      setResponse(res.data.candidates[0].content.parts[0].text);
+      setResponse(res.data.response);
     } catch (error) {
       console.error('Error fetching response:', error);
       setResponse('Error fetching response.');
