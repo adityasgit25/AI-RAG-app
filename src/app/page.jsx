@@ -2,18 +2,23 @@
 
 import { useState } from 'react';
 import axios from 'axios';
+import { set } from 'mongoose';
 
 export default function Home() {
   const [query, setQuery] = useState('');
   const [response, setResponse] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleQuery = async () => {
+    setLoading(true);
     try {
       const res = await axios.post('/api/query', { query });
       setResponse(res.data.response);
     } catch (error) {
       console.error('Error fetching response:', error);
       setResponse('Error fetching response.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -34,8 +39,9 @@ export default function Home() {
         <button
           onClick={handleQuery}
           className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded w-full"
+          disabled={loading}
         >
-          Ask AI
+          {loading ? 'Loading...' : 'Ask'}
         </button>
         {response && (
           <div className="mt-6 p-4 bg-gray-100 border rounded shadow">
