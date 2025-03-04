@@ -10,8 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/env": "^15.2.0",
     "axios": "^1.8.1",
     "dotenv": "^16.4.7",
+    "natural": "^8.0.1",
     "neo4j-driver": "^5.28.1",
     "next": "15.2.0",
     "react": "^19.0.0",

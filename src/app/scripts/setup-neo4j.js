@@ -5,6 +5,9 @@ async function setupDatabase() {
 
   try {
     await session.run(`
+      MATCH (n)
+      DETACH DELETE n
+      
       CREATE (bms:College {name: "BMS Institute of Technology", city: "Bangalore", established: 2002, rank: 45})
       CREATE (rv:College {name: "RV College of Engineering", city: "Bangalore", established: 1963, rank: 10})
       CREATE (pes:College {name: "PES University", city: "Bangalore", established: 1972, rank: 6})
@@ -55,4 +58,4 @@ async function setupDatabase() {
   }
 }
 
-setupDatabase();
+setupDatabase().then(() => console.log('Setup complete, test your API now!'));
