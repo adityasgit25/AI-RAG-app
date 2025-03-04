@@ -22,3 +22,28 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes move-twink-back {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
+}
+
+@keyframes move-twink-front {
+  from { background-position: 0 0; }
+  to { background-position: 10000px 10000px; }
+}
+
+@keyframes move-clouds-back {
+  from { background-position: 0 0; }
+  to { background-position: 10000px 0; }
+}
+
+@keyframes move-clouds-front {
+  from { background-position: 0 0; }
+  to { background-position: 0 10000px; }
+}
+
+.bg-stars {
+  background: url('https://ui.aceternity.com/components/shooting-stars-and-stars-background') repeat top center;
+  animation: move-twink-back 200s linear infinite, move-twink-front 200s linear infinite;
+}
